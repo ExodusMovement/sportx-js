@@ -1,5 +1,5 @@
 {
-  "name": "@sportx-bet/sportx-js",
+  "name": "@exodus/sportx-js",
   "description": "Provides an easy to use API to interact with the SportX relayer.",
   "dependencies": {
     "@exodus/ethersproject-abstract-signer": "^5.4.2-exodus.0",
