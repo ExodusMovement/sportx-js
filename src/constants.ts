@@ -1,4 +1,4 @@
-import { BigNumber } from "@ethersproject/bignumber";
+import { BigNumber } from "@exodus/ethersproject-bignumber";
 
 export const RELAYER_TIMEOUT = 10000;
 

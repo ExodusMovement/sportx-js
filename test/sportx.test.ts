@@ -1,6 +1,6 @@
-import { JsonRpcProvider } from "@ethersproject/providers";
-import { parseUnits } from "@ethersproject/units";
-import { Wallet } from "@ethersproject/wallet";
+import { JsonRpcProvider } from "@exodus/ethersproject-providers";
+import { parseUnits } from "@exodus/ethersproject-units";
+import { Wallet } from "@exodus/ethersproject-wallet";
 import { expect } from "chai";
 import "mocha";
 import { INewOrder, IPendingBetsRequest } from "../src";

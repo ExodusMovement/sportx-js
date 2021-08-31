@@ -1,5 +1,5 @@
-import { BigNumber as EthBigNumber } from "@ethersproject/bignumber";
-import { formatUnits, parseUnits } from "@ethersproject/units";
+import { BigNumber as EthBigNumber } from "@exodus/ethersproject-bignumber";
+import { formatUnits, parseUnits } from "@exodus/ethersproject-units";
 import { BigNumber } from "bignumber.js";
 import {
   FRACTION_DENOMINATOR,

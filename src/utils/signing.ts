@@ -1,6 +1,6 @@
-import { Signer } from "@ethersproject/abstract-signer";
-import { arrayify, hexlify, hexZeroPad } from "@ethersproject/bytes";
-import { keccak256 as solidityKeccak256 } from "@ethersproject/solidity";
+import { Signer } from "@exodus/ethersproject-abstract-signer";
+import { arrayify, hexlify, hexZeroPad } from "@exodus/ethersproject-bytes";
+import { keccak256 as solidityKeccak256 } from "@exodus/ethersproject-solidity";
 import {
   ICancelDetails,
   IContractOrder,
