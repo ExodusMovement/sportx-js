@@ -53,12 +53,13 @@
     "typescript": "^4.3.5"
   },
   "author": "SportX <contact@sportx.bet>",
-  "main": "dist-cjs/index.js",
+  "main": "dist-esm/index.js",
   "module": "dist-esm/index.js",
+  "type": "module",
   "source": "src/index.ts",
   "files": [
-    "/dist-esm",
-    "/dist-cjs"
+    "/dist-esm/**/*.json",
+    "/dist-esm/**/*.js"
   ],
   "scripts": {
     "dist-esm": "rm -rf dist-esm/ && tsc -p tsconfig.esm.dist.json",
