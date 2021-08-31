@@ -6,7 +6,6 @@ import { Contract } from "@ethersproject/contracts";
 import { JsonRpcProvider, Web3Provider } from "@ethersproject/providers";
 import { randomBytes } from "@ethersproject/random";
 import { Wallet } from "@ethersproject/wallet";
-import * as ably from "ably";
 import fetch from "cross-fetch";
 import debug from "debug";
 import ethSigUtil from "eth-sig-util";
@@ -122,7 +121,6 @@ export interface ISportX {
   ): Promise<IRelayerResponse>;
   getTrades(tradeRequest: IGetTradesRequest): Promise<ITradesResponse>;
   approveSportXContracts(token: string): Promise<IRelayerResponse>;
-  getRealtimeConnection(): ably.Types.RealtimePromise;
   getEip712Signature(payload: any): Promise<string>;
   getLiveScores(eventIds: string[]): Promise<ILiveScore[]>;
 }
@@ -135,7 +133,6 @@ class SportX implements ISportX {
   private initialized: boolean = false;
   private debug = debug("sportx-js");
   private metadata!: IMetadata;
-  private ably!: ably.Types.RealtimePromise;
   private environment: Environments;
   private privateKey!: string;
   private mainchainChainId!: number;
@@ -202,23 +199,10 @@ class SportX implements ISportX {
     return data as IMarket[];
   }
 
-  public getRealtimeConnection(): ably.Types.RealtimePromise {
-    return this.ably;
-  }
-
   public async init() {
     if (this.initialized) {
       throw new Error("Already initialized");
     }
-    this.ably = new ably.Realtime.Promise({
-      authUrl: `${this.relayerUrl}${RELAYER_HTTP_ENDPOINTS.USER_TOKEN}`
-    });
-    await new Promise<void>((resolve, reject) => {
-      this.ably.connection.on("connected", () => {
-        resolve();
-      });
-      setTimeout(() => reject(), RELAYER_TIMEOUT);
-    });
     this.metadata = await this.getMetadata();
     const mainchainNetwork = await this.mainchainProvider.getNetwork();
     this.mainchainChainId = mainchainNetwork.chainId;
