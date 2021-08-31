@@ -1,5 +1,5 @@
-import { BigNumber } from "@ethersproject/bignumber";
-import { Contract } from "@ethersproject/contracts";
+import { BigNumber } from "@exodus/ethersproject-bignumber";
+import { Contract } from "@exodus/ethersproject-contracts";
 
 export interface IContractOrder {
   marketHash: string;

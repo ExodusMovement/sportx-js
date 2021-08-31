@@ -1,7 +1,7 @@
-import { isAddress } from "@ethersproject/address";
-import { BigNumber } from "@ethersproject/bignumber";
-import { isHexString } from "@ethersproject/bytes";
-import { Zero } from "@ethersproject/constants";
+import { isAddress } from "@exodus/ethersproject-address";
+import { BigNumber } from "@exodus/ethersproject-bignumber";
+import { isHexString } from "@exodus/ethersproject-bytes";
+import { Zero } from "@exodus/ethersproject-constants";
 import { FRACTION_DENOMINATOR } from "../constants";
 import { IFillDetailsMetadata } from "../types/internal";
 import {
