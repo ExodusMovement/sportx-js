@@ -1,3 +1,4 @@
+export default JSON.parse(`
 {
   "abi": [
     {
@@ -338,3 +339,4 @@
   ],
   "networks": {}
 }
+`)

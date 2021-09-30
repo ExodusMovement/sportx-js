@@ -1,3 +1,4 @@
+export default JSON.parse(`
 {
   "abi": [
     {
@@ -717,3 +718,4 @@
     }
   ]
 }
+`)
