@@ -1,3 +1,4 @@
+export default JSON.parse(`
 {
   "contractName": "FillOrder",
   "abi": [
@@ -461,3 +462,4 @@
     }
   ]
 }
+`)

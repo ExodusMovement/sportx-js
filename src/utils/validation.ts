@@ -2,16 +2,16 @@ import { isAddress } from "@exodus/ethersproject-address";
 import { BigNumber } from "@exodus/ethersproject-bignumber";
 import { isHexString } from "@exodus/ethersproject-bytes";
 import { Zero } from "@exodus/ethersproject-constants";
-import { FRACTION_DENOMINATOR } from "../constants";
-import { IFillDetailsMetadata } from "../types/internal";
+import { FRACTION_DENOMINATOR } from "../constants.js";
+import { IFillDetailsMetadata } from "../types/internal.js";
 import {
   IGetTradesRequest,
   INewOrder,
   IPendingBetsRequest,
   IRelayerMakerOrder,
   ISignedRelayerMakerOrder
-} from "../types/relayer";
-import { convertToAPIPercentageOdds } from "./convert";
+} from "../types/relayer.js";
+import { convertToAPIPercentageOdds } from "./convert.js";
 
 export function validateIGetPendingBetsRequest(payload: IPendingBetsRequest) {
   const { bettor, startDate, endDate, fillHash, baseToken } = payload;

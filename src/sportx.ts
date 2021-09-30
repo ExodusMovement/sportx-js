@@ -10,7 +10,7 @@ import fetch from "cross-fetch";
 import debug from "debug";
 import ethSigUtil from "eth-sig-util";
 import queryString from "query-string";
-import ChildERC20 from "./artifacts/ChildERC20.json";
+import ChildERC20 from "./artifacts/ChildERC20.js";
 import {
   CHAIN_IDS,
   DEFAULT_MATIC_RPL_URLS,
@@ -23,16 +23,16 @@ import {
   SidechainNetworks,
   TOKEN_ADDRESSES,
   TOKEN_TRANSFER_PROXY_ADDRESS
-} from "./constants";
-import { APIError } from "./errors/api_error";
-import { APISchemaError } from "./errors/schema_error";
+} from "./constants.js";
+import { APIError } from "./errors/api_error.js";
+import { APISchemaError } from "./errors/schema_error.js";
 import {
   IApproveSpenderPayload,
   IBaseTokenWrappers,
   ICancelDetails,
   IFillDetails,
   IFillDetailsMetadata
-} from "./types/internal";
+} from "./types/internal.js";
 import {
   IActiveLeague,
   IDetailedRelayerMakerOrder,
@@ -52,17 +52,17 @@ import {
   ISignedRelayerMakerOrder,
   ISport,
   ITradesResponse
-} from "./types/relayer";
-import { convertToContractOrder } from "./utils/convert";
-import { tryParseJson } from "./utils/misc";
-import { getSidechainNetwork } from "./utils/networks";
+} from "./types/relayer.js";
+import { convertToContractOrder } from "./utils/convert.js";
+import { tryParseJson } from "./utils/misc.js";
+import { getSidechainNetwork } from "./utils/networks.js";
 import {
   getCancelOrderEIP712Payload,
   getFillOrderEIP712Payload,
   getMaticEip712Payload,
   getOrderHash,
   getOrderSignature
-} from "./utils/signing";
+} from "./utils/signing.js";
 import {
   isAddress,
   isPositiveBigNumber,
@@ -71,7 +71,7 @@ import {
   validateIGetTradesRequest,
   validateINewOrderSchema,
   validateISignedRelayerMakerOrder
-} from "./utils/validation";
+} from "./utils/validation.js";
 
 export interface ISportX {
   init(): Promise<void>;
