@@ -88,7 +88,8 @@ export interface ISportX {
     eventId?: number,
     leagueId?: string,
     liveOnly?: boolean,
-    betGroup?: string
+    betGroup?: string,
+    type?: number
   ): Promise<IMarket[]>;
   getPopularMarkets(): Promise<IMarket[]>;
   marketLookup(marketHashes: string[]): Promise<IMarket[]>;
@@ -319,7 +320,8 @@ class SportX implements ISportX {
     eventId?: number,
     leagueId?: string,
     liveOnly?: boolean,
-    betGroup?: string
+    betGroup?: string,
+    type?: number
   ): Promise<IMarket[]> {
     this.debug("getActiveMarkets");
     const qs = queryString.stringify({
@@ -327,7 +329,8 @@ class SportX implements ISportX {
       ...(leagueId !== undefined && { leagueId }),
       ...(eventId !== undefined && { eventId }),
       ...(liveOnly !== undefined && { liveOnly }),
-      ...(betGroup !== undefined && { betGroup })
+      ...(betGroup !== undefined && { betGroup }),
+      ...(type !== undefined && { type }),
     });
     const url = `${this.relayerUrl}${RELAYER_HTTP_ENDPOINTS.ACTIVE_MARKETS}?${qs}`;
     const response = await fetch(url);
